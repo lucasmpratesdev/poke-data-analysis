@@ -1,9 +1,16 @@
+import os
 import requests
 import logging
+from dotenv import load_dotenv
 
+
+load_dotenv()
+
+# Get the API URL from the environment
+POKEAPI_URL = os.getenv("POKEAPI_URL")
 def get_pokemon_list(logger):
     logger.info("Fetching Pokémon list...")
-    url = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
+    url = f"{POKEAPI_URL}?limit=100&offset=0"
     response = requests.get(url)
     if response.status_code == 200:
         return response.json().get("results", [])
@@ -11,7 +18,7 @@ def get_pokemon_list(logger):
     return []
 
 def get_pokemon_details(url, logger):
-    #logger.info(f"Fetching details for Pokémon: {url}")
+    #logger.info(f"Fetching details for Pokémon: {url}") # log of each request
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()
