@@ -1,6 +1,5 @@
 import os
 import requests
-import logging
 from dotenv import load_dotenv
 
 
@@ -17,14 +16,15 @@ def get_pokemon_list(logger):
     logger.error(f"Failed to fetch Pokémon list: {response.status_code}")
     return []
 
+# Get details of each Pokémon
 def get_pokemon_details(url, logger):
-    #logger.info(f"Fetching details for Pokémon: {url}") # log of each request
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()
     logger.error(f"Failed to fetch details for URL {url}: {response.status_code}")
     return {}
 
+# Extracts main attributes from Pokémon
 def extract_pokemon_data(logger):
     pokemon_list = get_pokemon_list(logger)
     pokemon_details = []
