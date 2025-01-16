@@ -1,2 +1,17 @@
-venv/
+# Ignorar pastas de ambiente virtual
 .venv/
+venv/
+
+# Ignorar saídas de execução (relatórios, gráficos, logs)
+outputs/
+pipeline.log
+
+# Ignorar configurações de Docker e GitHub, se não forem necessárias
+.github/
+
+# Ignorar arquivos de cache do Python
+__pycache__/
+*.pyc
+
+# Ignorar arquivos do Docker que não precisam ser versionados
+.dockerignore

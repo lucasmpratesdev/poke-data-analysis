@@ -24,7 +24,8 @@ for pokemon in pokemon_list:
     hp = stats.get("hp", 0)
     attack = stats.get("attack", 0)
     defense = stats.get("defense", 0)
-
+    print('testeGP')
+    print(pokemon_details)
     pokemon_details.append({
         "ID": pokemon_id,
         "Name": name,
