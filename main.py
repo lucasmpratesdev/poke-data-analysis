@@ -1,4 +1,4 @@
-from logger import setup_logger
+from custom_logger import setup_logger
 from data_extraction import extract_pokemon_data
 from data_transformation import transform_pokemon_data, calculate_statistics, get_top_pokemon
 from report_generation import generate_report
